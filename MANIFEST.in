@@ -1,0 +1,13 @@
+include README.md
+include LICENSE
+include CONTRIBUTING.md
+include requirements.txt
+include requirements-dev.txt
+recursive-include resonance_nn *.py
+recursive-include examples *.py *.ipynb
+recursive-include tests *.py
+prune .git
+prune __pycache__
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude .DS_Store
