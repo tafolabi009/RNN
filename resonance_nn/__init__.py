@@ -55,6 +55,8 @@ from resonance_nn.spectral_optimized import (
     apply_rotary_emb,
 )
 
+from .wrapper import load_spectral_model, SpectralModelWrapper
+
 __version__ = '3.0.0'
 __author__ = 'Oluwatosin A. Afolabi'
 __email__ = 'afolabi@genovotech.com'
@@ -152,4 +154,4 @@ def list_available_models():
     print("="*80 + "\n")
 
 # Add to __all__
-__all__.extend(['get_model_info', 'list_available_models'])
+__all__.extend(['get_model_info', 'list_available_models', 'load_spectral_model', 'SpectralModelWrapper'])
