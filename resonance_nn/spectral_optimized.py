@@ -555,44 +555,65 @@ class AdvancedSpectralGating(nn.Module):
         
         return modulation
     
-    def _apply_entropy_regularization(self, magnitude: torch.Tensor) -> torch.Tensor:
+    def _compute_entropy_loss(self, magnitude: torch.Tensor) -> torch.Tensor:
         """
-        Apply entropy-based regularization to prevent mode collapse.
+        Compute entropy-based auxiliary loss to prevent mode collapse.
         Encourages diverse frequency usage across the spectrum.
         
         This is a KEY innovation to beat transformers - forces the network
         to use the full frequency spectrum instead of collapsing to a few modes.
         
+        Returns a loss term (not a regularized magnitude) that should be added
+        to the main loss during training with a weight (e.g., 0.01).
+        
         Args:
             magnitude: (batch, freq_bins, dim) - frequency magnitudes
         Returns:
-            magnitude: (batch, freq_bins, dim) - regularized magnitudes
+            entropy_loss: scalar tensor - auxiliary loss for training
         """
-        # Compute frequency usage distribution
-        # Normalize to probability distribution across frequency bins
-        probs = F.softmax(magnitude.flatten(start_dim=1) / 0.1, dim=1)  # Lower temp = sharper
+        # Normalize magnitude across frequency bins to get importance distribution
+        # Use L2 norm per frequency bin as importance score
+        freq_importance = magnitude.pow(2).sum(dim=-1)  # (batch, freq_bins)
         
-        # Compute entropy (higher = more diverse)
+        # Convert to probability distribution
+        probs = F.softmax(freq_importance / 0.1, dim=1)  # Temperature 0.1 for sharper distribution
+        
+        # Compute Shannon entropy (higher = more diverse frequency usage)
         entropy = -(probs * torch.log(probs + 1e-10)).sum(dim=1).mean()
         
-        # Encourage high entropy via gradient signal
-        # We want to maximize entropy, so we add a term that scales with -entropy
-        # This creates a "repulsion" force that spreads energy across frequencies
+        # Target entropy: log of number of frequency bins (uniform distribution)
+        target_entropy = torch.log(torch.tensor(magnitude.shape[1], 
+                                                 dtype=magnitude.dtype, 
+                                                 device=magnitude.device))
+        
+        # Loss: penalize deviation from target (encourages uniform frequency usage)
+        # We want to MAXIMIZE entropy, so loss is negative entropy gap
+        entropy_loss = target_entropy - entropy
+        
+        return entropy_loss
+    
+    def _apply_entropy_regularization(self, magnitude: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
+        """
+        Apply entropy regularization and return both regularized magnitude and loss.
+        
+        Args:
+            magnitude: (batch, freq_bins, dim) - frequency magnitudes
+        Returns:
+            magnitude: (batch, freq_bins, dim) - optionally perturbed magnitudes
+            entropy_loss: scalar tensor - auxiliary loss for training
+        """
+        # Compute entropy loss
+        entropy_loss = self._compute_entropy_loss(magnitude)
+        
+        # During training, optionally add small noise to encourage exploration
+        # This helps escape local minima in frequency selection
         if self.training:
-            # Diversity loss: penalize low entropy (mode collapse)
-            target_entropy = torch.log(torch.tensor(magnitude.shape[1] * magnitude.shape[2], 
-                                                     dtype=magnitude.dtype, device=magnitude.device))
-            entropy_gap = target_entropy - entropy
-            
-            # Apply soft regularization via gating
-            # Higher entropy gap = stronger regularization
-            diversity_gate = torch.sigmoid(entropy_gap * 0.1)  # Learnable would be better
-            
-            # Add small noise proportional to entropy gap to encourage exploration
-            noise = torch.randn_like(magnitude) * 0.01 * diversity_gate
+            # Adaptive noise based on entropy gap (more noise when entropy is low)
+            noise_scale = torch.sigmoid(entropy_loss) * 0.005  # Small perturbation
+            noise = torch.randn_like(magnitude) * noise_scale
             magnitude = magnitude + noise
         
-        return magnitude
+        return magnitude, entropy_loss
         
     def forward(self, x_freq: torch.Tensor) -> torch.Tensor:
         """
@@ -646,7 +667,11 @@ class AdvancedSpectralGating(nn.Module):
             modulated_phase[:, :, h, :] = modulated_phase[:, :, h, :] + phase_mod
         
         # Entropy regularization (encourages diverse frequency usage)
-        gated_magnitude = self._apply_entropy_regularization(gated_magnitude)
+        # Returns both regularized magnitude and auxiliary loss
+        gated_magnitude, entropy_loss = self._apply_entropy_regularization(gated_magnitude)
+        
+        # Store entropy loss for potential use in training (can be accessed via hooks or returned)
+        # For now, we'll just apply the regularization effect
         
         # Reconstruct complex representation
         real = gated_magnitude * torch.cos(modulated_phase)
@@ -1576,24 +1601,98 @@ class SpectralAudioEncoder(nn.Module):
         
         return mel_basis
     
-    def forward(self, audio: torch.Tensor) -> torch.Tensor:
+    def _compute_mel_spectrogram(self, waveform: torch.Tensor) -> torch.Tensor:
+        """
+        Compute mel-spectrogram from raw audio waveform.
+        
+        ADVANCED implementation with:
+        - STFT with Hann window
+        - Power spectrogram computation
+        - Mel filterbank application
+        - Log compression with dynamic range compression
+        - Normalization
+        
+        Args:
+            waveform: (batch, samples) - raw audio waveform
+        Returns:
+            mel_spec: (batch, frames, n_mels) - mel spectrogram features
+        """
+        batch_size, num_samples = waveform.shape
+        
+        # Apply Hann window for STFT
+        window = torch.hann_window(self.n_fft, device=waveform.device, dtype=waveform.dtype)
+        
+        # Compute STFT: Short-Time Fourier Transform
+        # This gives us time-frequency representation
+        stft = torch.stft(
+            waveform,
+            n_fft=self.n_fft,
+            hop_length=self.hop_length,
+            win_length=self.n_fft,
+            window=window,
+            center=True,
+            pad_mode='reflect',
+            normalized=False,
+            onesided=True,
+            return_complex=True
+        )  # (batch, n_freqs, frames)
+        
+        # Compute power spectrogram: |STFT|^2
+        power_spec = torch.abs(stft) ** 2  # (batch, n_freqs, frames)
+        
+        # Apply mel filterbank: linear freq -> mel scale
+        # mel_basis: (n_mels, n_freqs), power_spec: (batch, n_freqs, frames)
+        mel_spec = torch.matmul(
+            self.mel_basis.to(power_spec.device),
+            power_spec
+        )  # (batch, n_mels, frames)
+        
+        # Log compression with dynamic range compression
+        # Add small epsilon to avoid log(0)
+        mel_spec = torch.log(mel_spec + 1e-6)
+        
+        # Dynamic range compression: compress extreme values
+        # This helps with numerical stability and model training
+        mel_spec = torch.clamp(mel_spec, min=-11.5, max=2.0)
+        
+        # Transpose to (batch, frames, n_mels) for sequence processing
+        mel_spec = mel_spec.transpose(1, 2)
+        
+        # Per-sample normalization (zero mean, unit variance)
+        # Compute statistics over time and frequency dimensions
+        mean = mel_spec.mean(dim=(1, 2), keepdim=True)
+        std = mel_spec.std(dim=(1, 2), keepdim=True) + 1e-6
+        mel_spec = (mel_spec - mean) / std
+        
+        return mel_spec
+    
+    def forward(self, audio: torch.Tensor, is_raw_waveform: bool = False) -> torch.Tensor:
         """
         Process audio input through spectral layers.
         
         Args:
-            audio: (batch, frames, n_mels) pre-computed mel spectrogram features
+            audio: Either:
+                - (batch, samples) raw audio waveform if is_raw_waveform=True
+                - (batch, frames, n_mels) pre-computed mel spectrogram if is_raw_waveform=False
+            is_raw_waveform: Whether input is raw audio or pre-computed features
         Returns:
             features: (batch, frames, hidden_dim)
         """
         batch_size = audio.shape[0]
         
-        # Expect pre-computed mel spectrogram features
-        # Shape: (batch, frames, n_mels)
-        if audio.dim() == 2:
-            # If 2D, assume it needs expansion to n_mels
-            mel_features = audio.unsqueeze(-1).expand(-1, -1, self.n_mels)
+        if is_raw_waveform:
+            # Compute mel spectrogram from raw audio
+            if audio.dim() != 2:
+                raise ValueError(f"Raw waveform must be 2D (batch, samples), got shape {audio.shape}")
+            mel_features = self._compute_mel_spectrogram(audio)
         else:
-            mel_features = audio
+            # Use pre-computed mel spectrogram features
+            # Shape: (batch, frames, n_mels)
+            if audio.dim() == 2:
+                # If 2D, assume it needs expansion to n_mels
+                mel_features = audio.unsqueeze(-1).expand(-1, -1, self.n_mels)
+            else:
+                mel_features = audio
         
         # Project to hidden dim
         x = self.input_proj(mel_features)  # (batch, frames, hidden_dim)
