@@ -1,0 +1,34 @@
+Spectral Neural Networks - Clean Directory Structure
+====================================================
+
+Root Files:
+-----------
+LICENSE                  - MIT License
+MANIFEST.in             - Package manifest
+README.md               - Main documentation
+pyproject.toml          - Modern Python packaging config
+requirements.txt        - Dependencies
+setup.py               - Package setup script
+
+Source Code (resonance_nn/):
+-----------------------------
+__init__.py                      - Package initialization and exports
+spectral_optimized.py           - Main architecture (2,593 lines)
+wrapper.py                      - Utility wrappers
+deployment/quantize.py          - Quantization utilities
+
+Tests (tests/):
+---------------
+__init__.py                     - Test package init
+test_imports.py                 - Import and smoke tests
+test_training_stability.py      - Training stability tests
+
+Examples (examples/):
+--------------------
+simple_usage_example.py         - Usage demonstrations
+
+Benchmarks (benchmarks/):
+------------------------
+quick_benchmark.py              - Performance benchmarking
+
+Total: 15 essential files (clean and minimal)
