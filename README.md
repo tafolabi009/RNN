@@ -1,348 +1,701 @@
-# 🚀 Spectral Neural Networks v3.0 ULTRA# Spectral Neural Networks - Production Ready SLMs# Spectral Neural Networks# Pure Spectral Resonance Network
+# Resonance NN# 🚀 Spectral Neural Networks v3.0
 
 
 
-**Revolutionary FFT-based Architecture | 200K Context | O(n log n) Complexity | Multi-Modal**
+**Next-Generation Neural Architecture | O(n log n) Complexity | 200K Context****Revolutionary FFT-based Architecture | 200K Context | O(n log n) Complexity | Multi-Modal**
 
 
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)**Version 1.0.0** | **O(n log n) Complexity** | **100M to 100B+ Parameters**
+------
+
+
+
+## ⚠️ PROPRIETARY - INTERNAL USE ONLY## ⚠️ PROPRIETARY - INTERNAL USE ONLY
+
+
+
+**© 2025 Genovo Technologies. All Rights Reserved.****© 2025 Genovo Technologies. All Rights Reserved.**
+
+
+
+This software is confidential and proprietary to Genovo Technologies. Unauthorized distribution, use, or disclosure is strictly prohibited.**CONFIDENTIAL:** This software is proprietary to Genovo Technologies and is for internal use only. Unauthorized distribution, use, or disclosure is strictly prohibited.
+
+
+
+------
+
+
+
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
 [![PyTorch 2.0+](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)[![PyTorch 2.0+](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
 
 
 
----## 🎯 Mission: Small Language Models That Beat 50B+ Transformers[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)## 🎉 Complete Success - Novel Architecture Built from Scratch
+---[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 
 
 
-## 🎯 What Makes This Different?
+## Overview---
 
 
 
-**Spectral Neural Networks completely eliminate attention mechanisms** and replace them with Advanced Spectral Gating (ASG) - a phase-aware frequency-domain processing system that's both **faster** and **more powerful** for long sequences.Build **efficient, domain-specific language models** (500M-1B params) that outperform much larger transformers through:[![PyTorch 2.0+](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
+Resonance NN is a production-grade neural network architecture that replaces traditional attention mechanisms with Fast Fourier Transform (FFT) based spectral processing. This approach delivers **O(n log n)** computational complexity compared to the **O(n²)** complexity of standard transformers, enabling dramatically faster inference on long sequences.
 
 
 
-### Key Breakthroughs:
+### Key Advantages## 🎯 What Makes This Different?
 
 
 
-- **200K Context Length** - 6x longer than GPT-4, perfect for documents, books, codebases- **Sparse spectral processing** (10-15% of frequencies) → O(k log k)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)We **deleted the entire project** and rebuilt with a completely novel approach: **ZERO transformer components**, pure frequency-domain signal processing.
+- **Superior Scaling** - O(n log n) complexity enables processing of sequences up to 200,000 tokens
 
-- **O(n log n) Complexity** - 100x faster than transformers on long sequences
+- **Faster Inference** - 4-6x speed improvement on sequences longer than 2K tokens
 
-- **No Attention** - Advanced Spectral Gating (ASG) with phase-aware processing- **Mixture-of-Experts (MoE)** → Massive capacity without cost
+- **Extended Context** - Support for context lengths up to 200K tokens (6x longer than GPT-4)**Spectral Neural Networks completely eliminate attention mechanisms** and replace them with Advanced Spectral Gating (ASG) - a phase-aware frequency-domain processing system that's both **faster** and **more powerful** for long sequences.Build **efficient, domain-specific language models** (500M-1B params) that outperform much larger transformers through:[![PyTorch 2.0+](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
+
+- **Memory Efficient** - Linear memory growth vs quadratic for attention-based models
+
+- **Multi-Modal** - Unified architecture for text, vision, and audio processing
+
+
+
+---### Key Breakthroughs:
+
+
+
+## Performance
+
+
+
+| Sequence Length | Resonance NN | Transformer | Speedup |- **200K Context Length** - 6x longer than GPT-4, perfect for documents, books, codebases- **Sparse spectral processing** (10-15% of frequencies) → O(k log k)  [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-yellow.svg)](https://#LICENSE)We **deleted the entire project** and rebuilt with a completely novel approach: **ZERO transformer components**, pure frequency-domain signal processing.
+
+|-----------------|--------------|-------------|---------|
+
+| 512 tokens      | 37 ms        | 54 ms       | 1.5x    |- **O(n log n) Complexity** - 100x faster than transformers on long sequences
+
+| 2,048 tokens    | 134 ms       | 283 ms      | 2.1x    |
+
+| 8,192 tokens    | 568 ms       | 2,555 ms    | **4.5x** |- **No Attention** - Advanced Spectral Gating (ASG) with phase-aware processing- **Mixture-of-Experts (MoE)** → Massive capacity without cost
+
+| 16,384 tokens   | 1,576 ms     | 10,074 ms   | **6.4x** |
 
 - **Multi-Modal** - Text, vision, audio support with spectral fusion (no cross-attention!)
 
+*Benchmarked on NVIDIA GTX 1660 Ti*
+
 - **Task-Agnostic** - Works for classification, generation, seq2seq, embeddings- **Domain optimization** → 500M beats general 50B models
+
+---
 
 - **GPU/TPU Optimized** - Hierarchical FFT, XLA-compatible, memory efficient
 
+## Architecture
 
+
+
+Resonance NN leverages spectral domain processing through three core innovations:
 
 ---
 
----**O(n log n) sequence modeling with Fast Fourier Transform**---
+1. **Advanced Spectral Gating (ASG)** - Phase-aware frequency modulation replaces attention
+
+2. **Adaptive Frequency Selection** - Learned sparsity patterns optimize computation---**O(n log n) sequence modeling with Fast Fourier Transform**---
+
+3. **Hierarchical FFT Processing** - Efficient handling of ultra-long sequences
 
 ## 📊 Performance vs Transformers
 
+This architecture eliminates the quadratic bottleneck of attention while maintaining global context awareness.
 
+
+
+---
 
 | Metric | Spectral NN v3.0 | Transformer | Advantage |
 
+## Installation
+
 |--------|------------------|-------------|-----------|## 📊 The Fundamental Advantage
-
-| **Max Context** | 200,000 tokens | 32K-128K | **1.5-6x longer** |
-
-| **Speed (8K seq)** | 568ms | 2,555ms | **4.5x faster** ⚡ |
-
-| **Speed (200K seq)** | ~8s | OOM/timeout | **∞x faster** 🔥 |
-
-| **Memory (200K)** | O(n log n) | O(n²) | **Tractable vs infeasible** |```**Current Status: Research Prototype (Rating: 4.5/10)**  ## 🚀 What We Built
-
-| **Accuracy** | ~90-92% | ~95-97% | Competitive, improving |
-
-Transformer: O(n²·d) - Quadratic scaling
-
-**Target Rating: 9/10** - Speed champion for long contexts, accuracy rapidly improving.
-
-Spectral:    O(n·log(n)·d) - Near-linear scaling**📖 Read [HONEST_ASSESSMENT.md](HONEST_ASSESSMENT.md) for complete truth**
-
----
-
-
-
-## 🏗️ Architecture Overview
-
-At 4096 tokens:A neural network architecture that:
-
-### Core Innovation: Advanced Spectral Gating (ASG)
-
-• Transformer: 8.6 BILLION operations
-
-Instead of attention's Q·K^T multiplication (O(n²)), we use:
-
-• Spectral:    25 MILLION operations  ---- ❌ **Uses NO attention mechanisms** (no Q/K/V, no self-attention, no cross-attention)
-
-```
-
-1. FFT Transform: x → X (frequency domain)• Advantage:   343x fewer operations!
-
-2. Phase-Aware Gating: modulate magnitude AND phase
-
-3. Adaptive Sparsity: learn which frequencies matter (per input!)```- ❌ **Uses NO transformer layers** (no TransformerEncoder, no TransformerDecoder)  
-
-4. Cross-Frequency Interaction: multi-scale patterns
-
-5. IFFT: X → output (time domain)
-
-```
-
-### Real Benchmarks## 🎯 What This Is- ❌ **Uses NO recurrence** (no LSTM, no GRU)
-
-**Result:** Global receptive field like attention, but O(n log n) complexity!
-
-
-
-### What's New in v3.0:
-
-| Seq Length | Spectral | Transformer | Speedup |- ❌ **Uses NO convolutions** (no Conv1d, no Conv2d)
-
-- ✅ **Hierarchical FFT** - Chunk-based processing for 200K sequences
-
-- ✅ **Advanced Spectral Gating** - Phase + magnitude modulation (better than attention!)|-----------:|---------:|------------:|--------:|
-
-- ✅ **Adaptive Sparsity** - Learns optimal frequency selection per input
-
-- ✅ **Multi-Modal Encoders** - Vision, audio with spectral processing (no cross-attention!)| 512        | 36.6 ms  | 53.6 ms     | 1.5x    |A neural network architecture that replaces quadratic attention (O(n²)) with FFT-based processing (O(n log n)), making it faster on long sequences.- ✅ **Pure frequency domain processing** with FFT
-
-- ✅ **Task-Specific Variants** - Classifier, Encoder, Seq2Seq out of the box
-
-- ✅ **XLA/TPU Support** - Optimized for cloud-scale training| 2,048      | 134 ms   | 283 ms      | 2.1x    |
-
-
-
----| 4,096      | 332 ms   | 840 ms      | 2.5x    |- ✅ **Multi-scale spectral decomposition**
-
-
-
-## 🚀 Quick Start| 8,192      | 568 ms   | 2,555 ms    | **4.5x** 🚀 |
-
-
-
-### Installation| 16,384     | 1,576 ms | 10,074 ms   | **6.4x** 🔥 |**Key Features:**- ✅ **Adaptive learnable filters**
-
-
 
 ```bash
 
-git clone https://github.com/tafolabi009/RNN.git
-
-cd RNN---- ✅ O(n log n) complexity vs transformer's O(n²)- ✅ **Phase-aware gating**
-
-pip install -e .
+pip install resonance_nn-0.1.0-py3-none-any.whl| **Max Context** | 200,000 tokens | 32K-128K | **1.5-6x longer** |
 
 ```
 
+| **Speed (8K seq)** | 568ms | 2,555ms | **4.5x faster** ⚡ |
+
+### Requirements
+
+| **Speed (200K seq)** | ~8s | OOM/timeout | **∞x faster** 🔥 |
+
+- Python ≥ 3.8
+
+- PyTorch ≥ 2.0.0| **Memory (200K)** | O(n log n) | O(n²) | **Tractable vs infeasible** |```**Current Status: Research Prototype (Rating: 4.5/10)**  ## 🚀 What We Built
+
+- NumPy ≥ 1.21.0
+
+- SciPy ≥ 1.7.0| **Accuracy** | ~90-92% | ~95-97% | Competitive, improving |
 
 
-### Basic Usage## 🚀 Quick Start- ✅ 2-6x faster on sequences >2K tokens
+
+---Transformer: O(n²·d) - Quadratic scaling
 
 
 
-```python
+## Quick Start**Target Rating: 9/10** - Speed champion for long contexts, accuracy rapidly improving.
+
+
+
+### Language ModelSpectral:    O(n·log(n)·d) - Near-linear scaling**📖 Read [HONEST_ASSESSMENT.md](HONEST_ASSESSMENT.md) for complete truth**
+
+
+
+```python---
 
 from resonance_nn import create_spectral_lm
 
-import torch```python- ✅ Pure PyTorch implementation---
+import torch
 
 
 
-# Create model (200K context!)from resonance_nn import create_spectral_lm
+# Create model## 🏗️ Architecture Overview
 
 model = create_spectral_lm('base', vocab_size=50257)
 
-print(f"Parameters: {model.get_num_params()/1e6:.1f}M")- ⚠️ Accuracy trails state-of-the-art transformers (active research)
+model.eval()At 4096 tokens:A neural network architecture that:
 
 
 
-# Forward pass# Create 500M parameter SLM
+# Inference### Core Innovation: Advanced Spectral Gating (ASG)
 
-input_ids = torch.randint(0, 50257, (2, 1024))
+input_ids = torch.randint(0, 50257, (1, 8192))
 
-logits = model(input_ids)  # (2, 1024, 50257)model = create_spectral_lm(size='500m', vocab_size=50257)## 📊 Performance Results
+with torch.no_grad():• Transformer: 8.6 BILLION operations
 
+    logits = model(input_ids)
 
-
-# Generate text
-
-from transformers import GPT2TokenizerFast
-
-tokenizer = GPT2TokenizerFast.from_pretrained('gpt2')# Generate text---
-
-prompt = tokenizer.encode("Once upon a time", return_tensors='pt')
-
-generated = model.generate(prompt, max_length=200, temperature=0.8)generated = model.generate(prompt, max_length=100)
-
-print(tokenizer.decode(generated[0]))
-
-``````### Sentiment Classification
+```Instead of attention's Q·K^T multiplication (O(n²)), we use:
 
 
 
-### Classification
+### Classification• Spectral:    25 MILLION operations  ---- ❌ **Uses NO attention mechanisms** (no Q/K/V, no self-attention, no cross-attention)
 
 
 
-```python### Training## 📊 Honest Performance```
+```python```
 
-from resonance_nn import SpectralClassifier, SpectralConfig, ModalityType
+from resonance_nn import SpectralClassifier, SpectralConfig
 
+1. FFT Transform: x → X (frequency domain)• Advantage:   343x fewer operations!
 
+# Configure classifier
 
-config = SpectralConfig(
+config = SpectralConfig(2. Phase-Aware Gating: modulate magnitude AND phase
 
-    vocab_size=30522,```bashPure Spectral:    99.50% accuracy
+    vocab_size=30522,
 
-    embed_dim=768,
+    embed_dim=768,3. Adaptive Sparsity: learn which frequencies matter (per input!)```- ❌ **Uses NO transformer layers** (no TransformerEncoder, no TransformerDecoder)  
 
-    hidden_dim=3072,# Train 500M model on your domain
+    hidden_dim=3072,
 
-    num_layers=12,
+    num_layers=12,4. Cross-Frequency Interaction: multi-scale patterns
 
-    max_seq_len=512,python train_real_models.py --model_size 500m --dataset your_data### What Actually WorksTransformer:      99.50% accuracy
+    num_heads=12,
 
-    modality=ModalityType.TEXT
+    max_seq_len=5125. IFFT: X → output (time domain)
 
 )
-
-
-
-classifier = SpectralClassifier(config, num_classes=2)# Run benchmarksResult:           PERFECT TIE ✓
-
-logits = classifier(input_ids)  # (batch, 2)
-
-```python comprehensive_benchmark.py --all
-
-
-
-### Multi-Modal (Vision + Text)```| Task | Small Model | Large Model | BERT Baseline |```
-
-
-
-```python
-
-from resonance_nn import SpectralVisionEncoder, SpectralCrossModalFusion, SpectralConfig
-
----|------|------------|-------------|---------------|
-
-config = SpectralConfig(
-
-    hidden_dim=768,
-
-    num_layers=12,
-
-    max_seq_len=1024,## 🏗️ Unified Architecture| SST-2 | ~85% | ~90% | ~93% |### Language Modeling
-
-    modality=ModalityType.VISION
-
-)
-
-
-
-# Vision encoder (NO ATTENTION!)**Everything in ONE file:** `resonance_nn/spectral.py`| IMDB | ~85% | ~88% | ~95% |```
-
-vision_encoder = SpectralVisionEncoder(config)
-
-image_features = vision_encoder(images)  # (batch, patches, 768)
-
-
-
-# Cross-modal fusion (NO CROSS-ATTENTION!)- **Core Layers:** Dense, Sparse, MoE, MultiScale| WikiText PPL | ~25 | ~20 | ~15 |Pure Spectral:    1.08 perplexity
-
-fusion = SpectralCrossModalFusion(config)
-
-fused = fusion(text_features=text_emb, vision_features=image_features)- **Models:** Language Model, Classifier  
 
 ```
 
-- **Configs:** 100M to 100B parametersTransformer:      1.06 perplexity
+# Create and use
 
----
+model = SpectralClassifier(config, num_classes=2)### Real Benchmarks## 🎯 What This Is- ❌ **Uses NO recurrence** (no LSTM, no GRU)
 
-- **10,000+ lines, single source of truth**
+logits = model(input_ids)
 
-## 📦 Model Zoo
-
-### Speed (GTX 1660 Ti)Result:           98% match ✓
-
-All models support up to **200K context**:
-
-```python
-
-| Model | Parameters | Context | Hidden Dim | Use Case |
-
-|-------|-----------|---------|------------|----------|# SLM configurations```
-
-| `tiny` | 77M | 16K | 1024 | Fast prototyping, edge |
-
-| `small` | 454M | 65K | 2048 | Development, fine-tuning |'slm-100m'  → 102M params, 12 layers
-
-| `base` | 983M | 131K | 3072 | Production, general use |
-
-| `medium` | 3.3B | 200K | 4096 | High performance |'slm-500m'  → 523M params, 16 layers  | Sequence | Spectral | Transformer | Speedup |
-
-| `large` | 9.8B | 200K | 6144 | State-of-the-art |
-
-| `xlarge` | 21.7B | 200K | 8192 | Research, largest scale |'slm-1b'    → 1.1B params, 20 layers
+```**Result:** Global receptive field like attention, but O(n log n) complexity!
 
 
 
-```python```|----------|----------|-------------|---------|### Key Achievements
+### Text Generation
+
+
+
+```python### What's New in v3.0:
+
+# Generate text
+
+output = model.generate(| Seq Length | Spectral | Transformer | Speedup |- ❌ **Uses NO convolutions** (no Conv1d, no Conv2d)
+
+    input_ids,
+
+    max_length=512,- ✅ **Hierarchical FFT** - Chunk-based processing for 200K sequences
+
+    temperature=0.8,
+
+    top_p=0.9- ✅ **Advanced Spectral Gating** - Phase + magnitude modulation (better than attention!)|-----------:|---------:|------------:|--------:|
+
+)
+
+```- ✅ **Adaptive Sparsity** - Learns optimal frequency selection per input
+
+
+
+---- ✅ **Multi-Modal Encoders** - Vision, audio with spectral processing (no cross-attention!)| 512        | 36.6 ms  | 53.6 ms     | 1.5x    |A neural network architecture that replaces quadratic attention (O(n²)) with FFT-based processing (O(n log n)), making it faster on long sequences.- ✅ **Pure frequency domain processing** with FFT
+
+
+
+## Model Configurations- ✅ **Task-Specific Variants** - Classifier, Encoder, Seq2Seq out of the box
+
+
+
+| Configuration | Parameters | Context Length | Hidden Dim | Recommended Use |- ✅ **XLA/TPU Support** - Optimized for cloud-scale training| 2,048      | 134 ms   | 283 ms      | 2.1x    |
+
+|---------------|------------|----------------|------------|-----------------|
+
+| `tiny`        | 77M        | 16K            | 1024       | Prototyping, Edge |
+
+| `small`       | 454M       | 65K            | 2048       | Development |
+
+| **`base`**    | **983M**   | **131K**       | **3072**   | **Production** |---| 4,096      | 332 ms   | 840 ms      | 2.5x    |- ✅ **Multi-scale spectral decomposition**
+
+| `medium`      | 3.3B       | 200K           | 4096       | High Performance |
+
+| `large`       | 9.8B       | 200K           | 6144       | Research |
+
+
+
+```python## 🚀 Quick Start| 8,192      | 568 ms   | 2,555 ms    | **4.5x** 🚀 |
+
+# List all available configurations
 
 from resonance_nn import list_available_models
 
 list_available_models()
 
-```
+```### Installation| 16,384     | 1,576 ms | 10,074 ms   | **6.4x** 🔥 |**Key Features:**- ✅ **Adaptive learnable filters**
 
----| 512 | 36ms | 54ms | 1.5x |- ✅ Matches transformer accuracy
+
 
 ---
 
 
 
-## 🎯 Use Cases
-
-## 💡 Why SLMs Beat Larger Models| 2048 | 134ms | 283ms | 2.1x |- ✅ Zero gradient explosions
-
-### ✅ Perfect For:
+## Training```bash
 
 
 
-1. **Long Document Processing** (8K-200K tokens)
+```pythongit clone https://github.com/tafolabi009/RNN.git
 
-   - Legal documents, research papers### 1. Sparse Processing| 8192 | 568ms | 2555ms | 4.5x |- ✅ Handles 8192+ token sequences
+import torch
 
-   - Books, technical documentation
+from torch.utils.data import DataLoadercd RNN---- ✅ O(n log n) complexity vs transformer's O(n²)- ✅ **Phase-aware gating**
 
-   - Large codebasesKeep only 10% most important frequencies → 10x less compute, same quality
+from resonance_nn import create_spectral_lm
+
+pip install -e .
+
+# Setup
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')```
+
+model = create_spectral_lm('base', vocab_size=50257).to(device)
+
+optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4)
 
 
 
-2. **Real-Time Applications**- ✅ Completely novel architecture
+# Training loop### Basic Usage## 🚀 Quick Start- ✅ 2-6x faster on sequences >2K tokens
 
-   - Chat systems (low latency)
+model.train()
 
-   - Code completion### 2. MoE Specialization  
+for epoch in range(num_epochs):
 
-   - Streaming generation
+    for batch in train_loader:
 
-16 experts, each specialized → route to 2 best → massive capacity**Reality Check:** Faster, but less accurate than BERT. This is early-stage research.- ⚠️ Currently 3x slower (needs optimization)
+        input_ids = batch['input_ids'].to(device)```python
+
+        labels = batch['labels'].to(device)
+
+        from resonance_nn import create_spectral_lm
+
+        logits = model(input_ids)
+
+        loss = criterion(logits.view(-1, vocab_size), labels.view(-1))import torch```python- ✅ Pure PyTorch implementation---
+
+        
+
+        optimizer.zero_grad()
+
+        loss.backward()
+
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)# Create model (200K context!)from resonance_nn import create_spectral_lm
+
+        optimizer.step()
+
+model = create_spectral_lm('base', vocab_size=50257)
+
+# Save checkpoint
+
+torch.save(model.state_dict(), 'model.pth')print(f"Parameters: {model.get_num_params()/1e6:.1f}M")- ⚠️ Accuracy trails state-of-the-art transformers (active research)
+
+```
+
+
+
+---
+
+# Forward pass# Create 500M parameter SLM
+
+## Advanced Features
+
+input_ids = torch.randint(0, 50257, (2, 1024))
+
+### Mixed Precision Training
+
+logits = model(input_ids)  # (2, 1024, 50257)model = create_spectral_lm(size='500m', vocab_size=50257)## 📊 Performance Results
+
+```python
+
+from torch.cuda.amp import autocast, GradScaler
+
+
+
+scaler = GradScaler()# Generate text
+
+
+
+with autocast():from transformers import GPT2TokenizerFast
+
+    logits = model(input_ids)
+
+    loss = criterion(logits.view(-1, vocab_size), labels.view(-1))tokenizer = GPT2TokenizerFast.from_pretrained('gpt2')# Generate text---
+
+
+
+scaler.scale(loss).backward()prompt = tokenizer.encode("Once upon a time", return_tensors='pt')
+
+scaler.step(optimizer)
+
+scaler.update()generated = model.generate(prompt, max_length=200, temperature=0.8)generated = model.generate(prompt, max_length=100)
+
+```
+
+print(tokenizer.decode(generated[0]))
+
+### Gradient Checkpointing
+
+``````### Sentiment Classification
+
+```python
+
+# Enable for large models to reduce memory usage
+
+config = SpectralConfig(
+
+    vocab_size=50257,### Classification
+
+    hidden_dim=4096,
+
+    num_layers=24,
+
+    use_gradient_checkpointing=True
+
+)```python### Training## 📊 Honest Performance```
+
+```
+
+from resonance_nn import SpectralClassifier, SpectralConfig, ModalityType
+
+### Multi-Modal Processing
+
+
+
+```python
+
+from resonance_nn import SpectralVisionEncoder, SpectralCrossModalFusionconfig = SpectralConfig(
+
+
+
+# Vision encoder    vocab_size=30522,```bashPure Spectral:    99.50% accuracy
+
+vision_encoder = SpectralVisionEncoder(config)
+
+image_features = vision_encoder(images)    embed_dim=768,
+
+
+
+# Cross-modal fusion    hidden_dim=3072,# Train 500M model on your domain
+
+fusion = SpectralCrossModalFusion(config)
+
+fused_features = fusion(    num_layers=12,
+
+    text_features=text_embeddings,
+
+    vision_features=image_features    max_seq_len=512,python train_real_models.py --model_size 500m --dataset your_data### What Actually WorksTransformer:      99.50% accuracy
+
+)
+
+```    modality=ModalityType.TEXT
+
+
+
+---)
+
+
+
+## Deployment
+
+
+
+### Model Exportclassifier = SpectralClassifier(config, num_classes=2)# Run benchmarksResult:           PERFECT TIE ✓
+
+
+
+```pythonlogits = classifier(input_ids)  # (batch, 2)
+
+# Save for production
+
+torch.save({```python comprehensive_benchmark.py --all
+
+    'model_state_dict': model.state_dict(),
+
+    'config': config.__dict__,
+
+    'metadata': {
+
+        'version': '0.1.0',### Multi-Modal (Vision + Text)```| Task | Small Model | Large Model | BERT Baseline |```
+
+        'vocab_size': 50257,
+
+        'max_seq_len': 131072
+
+    }
+
+}, 'production_model.pth')```python
+
+
+
+# Load in productionfrom resonance_nn import SpectralVisionEncoder, SpectralCrossModalFusion, SpectralConfig
+
+checkpoint = torch.load('production_model.pth', map_location='cpu')
+
+model.load_state_dict(checkpoint['model_state_dict'])---|------|------------|-------------|---------------|
+
+model.eval()
+
+```config = SpectralConfig(
+
+
+
+### Optimization    hidden_dim=768,
+
+
+
+```python    num_layers=12,
+
+# Compile model for faster inference (PyTorch 2.0+)
+
+model = torch.compile(model, mode='max-autotune')    max_seq_len=1024,## 🏗️ Unified Architecture| SST-2 | ~85% | ~90% | ~93% |### Language Modeling
+
+
+
+# Quantization for deployment    modality=ModalityType.VISION
+
+from resonance_nn.deployment import quantize_model
+
+quantized_model = quantize_model(model, dtype=torch.qint8))
+
+```
+
+
+
+---
+
+# Vision encoder (NO ATTENTION!)**Everything in ONE file:** `resonance_nn/spectral.py`| IMDB | ~85% | ~88% | ~95% |```
+
+## Documentation
+
+vision_encoder = SpectralVisionEncoder(config)
+
+- **[Installation Guide](docs/INSTALLATION_GUIDE.md)** - Comprehensive setup instructions
+
+- **[Quick Reference](docs/QUICK_REFERENCE.md)** - Common patterns and examplesimage_features = vision_encoder(images)  # (batch, patches, 768)
+
+- **[Distribution Guide](docs/DISTRIBUTION_README.md)** - Deployment best practices
+
+- **[Verification Script](docs/verify_installation.py)** - Test your installation
+
+
+
+---# Cross-modal fusion (NO CROSS-ATTENTION!)- **Core Layers:** Dense, Sparse, MoE, MultiScale| WikiText PPL | ~25 | ~20 | ~15 |Pure Spectral:    1.08 perplexity
+
+
+
+## System Requirementsfusion = SpectralCrossModalFusion(config)
+
+
+
+### Developmentfused = fusion(text_features=text_emb, vision_features=image_features)- **Models:** Language Model, Classifier  
+
+
+
+- **CPU**: 8+ cores recommended```
+
+- **RAM**: 16GB minimum, 32GB recommended
+
+- **GPU**: NVIDIA GPU with 8GB+ VRAM (optional but recommended)- **Configs:** 100M to 100B parametersTransformer:      1.06 perplexity
+
+- **Storage**: 10GB for models and dependencies
+
+---
+
+### Production
+
+- **10,000+ lines, single source of truth**
+
+- **Base Model**: 4GB GPU memory, 8GB RAM
+
+- **Medium Model**: 16GB GPU memory, 32GB RAM## 📦 Model Zoo
+
+- **Large Model**: 40GB+ GPU memory, 80GB+ RAM
+
+### Speed (GTX 1660 Ti)Result:           98% match ✓
+
+---
+
+All models support up to **200K context**:
+
+## Technical Specifications
+
+```python
+
+### Algorithm Complexity
+
+| Model | Parameters | Context | Hidden Dim | Use Case |
+
+- **Attention (Standard)**: O(n² · d)
+
+- **Resonance NN**: O(n · log(n) · d)|-------|-----------|---------|------------|----------|# SLM configurations```
+
+- **Memory**: O(n · d) vs O(n² · d)
+
+| `tiny` | 77M | 16K | 1024 | Fast prototyping, edge |
+
+### Supported Modalities
+
+| `small` | 454M | 65K | 2048 | Development, fine-tuning |'slm-100m'  → 102M params, 12 layers
+
+- **Text**: Token sequences up to 200K
+
+- **Vision**: Image patches (224×224 to 1024×1024)| `base` | 983M | 131K | 3072 | Production, general use |
+
+- **Audio**: Spectrograms and waveforms
+
+| `medium` | 3.3B | 200K | 4096 | High performance |'slm-500m'  → 523M params, 16 layers  | Sequence | Spectral | Transformer | Speedup |
+
+### Layer Types
+
+| `large` | 9.8B | 200K | 6144 | State-of-the-art |
+
+- **Dense**: Full spectral processing
+
+- **Sparse**: Adaptive frequency selection (10-15% sparsity)| `xlarge` | 21.7B | 200K | 8192 | Research, largest scale |'slm-1b'    → 1.1B params, 20 layers
+
+- **MoE**: Mixture-of-Experts with learned routing
+
+- **MultiScale**: Hierarchical frequency decomposition
+
+
+
+---```python```|----------|----------|-------------|---------|### Key Achievements
+
+
+
+## Supportfrom resonance_nn import list_available_models
+
+
+
+For internal support and questions:list_available_models()
+
+
+
+- **Email**: afolabi@genovotech.com```
+
+- **Repository**: https://github.com/tafolabi009/RNN
+
+- **Issues**: https://github.com/tafolabi009/RNN/issues---| 512 | 36ms | 54ms | 1.5x |- ✅ Matches transformer accuracy
+
+
+
+------
+
+
+
+## License
+
+
+
+**Proprietary License - Genovo Technologies Internal Use Only**## 🎯 Use Cases
+
+
+
+© 2025 Genovo Technologies. All Rights Reserved.## 💡 Why SLMs Beat Larger Models| 2048 | 134ms | 283ms | 2.1x |- ✅ Zero gradient explosions
+
+
+
+This software is confidential and proprietary. Unauthorized distribution, use, or disclosure is strictly prohibited. For internal use by authorized Genovo Technologies personnel only.### ✅ Perfect For:
+
+
+
+See [LICENSE](LICENSE) for complete terms and conditions.
+
+
+
+---1. **Long Document Processing** (8K-200K tokens)
+
+
+
+## Citation   - Legal documents, research papers### 1. Sparse Processing| 8192 | 568ms | 2555ms | 4.5x |- ✅ Handles 8192+ token sequences
+
+
+
+```bibtex   - Books, technical documentation
+
+@software{resonance_nn_2025,
+
+  title = {Resonance NN: O(n log n) Spectral Neural Networks},   - Large codebasesKeep only 10% most important frequencies → 10x less compute, same quality
+
+  author = {Genovo Technologies Research},
+
+  year = {2025},
+
+  organization = {Genovo Technologies},
+
+  note = {Proprietary Software - Internal Use Only}2. **Real-Time Applications**- ✅ Completely novel architecture
+
+}
+
+```   - Chat systems (low latency)
+
+
+
+---   - Code completion### 2. MoE Specialization  
+
+
+
+**Genovo Technologies** | Building the Future of AI   - Streaming generation
+
+
+
+*Version 0.1.0 | October 2025*16 experts, each specialized → route to 2 best → massive capacity**Reality Check:** Faster, but less accurate than BERT. This is early-stage research.- ⚠️ Currently 3x slower (needs optimization)
+
 
 3. **Multi-Modal AI**
 
@@ -814,7 +1167,7 @@ But goes further with **Advanced Spectral Gating**, **hierarchical FFT**, and **
 
 
 
-MIT License - See `LICENSE` file- [ ] Train 100M, 500M, 1B on real datasets
+Proprietary License - Genovo Technologies Internal Use Only - See `LICENSE` file- [ ] Train 100M, 500M, 1B on real datasets
 
 
 
@@ -887,7 +1240,7 @@ Focus areas:
 
 - [x] Honest assessment
 
-MIT License
+Proprietary License - Genovo Technologies Internal Use Only
 
 ### Next (2-4 weeks)
 
@@ -944,10 +1297,16 @@ MIT License
 
 ## 📄 License
 
-MIT License
+**Proprietary License - Genovo Technologies Internal Use Only**
+
+© 2025 Genovo Technologies. All Rights Reserved.
+
+This software is confidential and proprietary. Unauthorized distribution, use, or disclosure is strictly prohibited. For internal use by Genovo Technologies employees only.
+
+See [LICENSE](LICENSE) for full terms.
 
 ---
 
-**Built with ❤️ and FFTs**  
+**Built with ❤️ and FFTs by Genovo Technologies**  
 *Current Rating: 4.5/10 | Potential: 7.5/10*  
 *Last Updated: October 14, 2025*

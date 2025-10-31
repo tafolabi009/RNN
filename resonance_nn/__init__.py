@@ -60,7 +60,8 @@ from .wrapper import load_spectral_model, SpectralModelWrapper
 __version__ = '3.0.0'
 __author__ = 'Oluwatosin A. Afolabi'
 __email__ = 'afolabi@genovotech.com'
-__license__ = 'MIT'
+__license__ = 'Proprietary - Genovo Technologies Internal Use Only'
+__copyright__ = 'Copyright (c) 2025 Genovo Technologies. All Rights Reserved.'
 
 __all__ = [
     # Configuration

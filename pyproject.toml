@@ -10,13 +10,14 @@ readme = "README.md"
 authors = [
     {name = "Oluwatosin A. Afolabi", email = "afolabi@genovotech.com"}
 ]
-license = {text = "MIT"}
+license = {text = "Proprietary - Genovo Technologies Internal Use Only"}
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
-    "License :: OSI Approved :: MIT License",
+    "License :: Other/Proprietary License",
+    "Private :: Do Not Upload",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
